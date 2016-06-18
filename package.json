@@ -1,0 +1,29 @@
+{
+  "name": "handlebars-faker",
+  "version": "0.0.1",
+  "description": "Small helper to use faker inside your handlebars template",
+  "main": "index.js",
+  "keywords": [
+    "handlebars",
+    "faker"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "posttest": "semistandard",
+    "test": "mocha"
+  },
+  "author": "Jan Nicklas <j.nicklas@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "handlebars": "^4.0.5",
+    "mocha": "^2.5.3",
+    "semistandard": "^8.0.0",
+    "sinon": "^1.17.4"
+  },
+  "dependencies": {
+    "faker": "^3.1.0"
+  }
+}
