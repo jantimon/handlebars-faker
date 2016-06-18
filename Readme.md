@@ -1,5 +1,5 @@
 # handlebars-faker
-[![Build Status](https://travis-ci.org/jantimon/handlebars-faker.svg?branch=master)](https://travis-ci.org/jantimon/handlebars-faker) [![npm version](https://badge.fury.io/js/jantimon%2Fhandlebars-faker.svg)](https://badge.fury.io/js/jantimon%2Fhandlebars-faker) [![Dependency Status](https://david-dm.org/jantimon/handlebars-faker.svg)](https://david-dm.org/jantimon/handlebars-faker)
+[![Build Status](https://travis-ci.org/jantimon/handlebars-faker.svg?branch=master)](https://travis-ci.org/jantimon/handlebars-faker) [![npm version](https://badge.fury.io/js/handlebars-faker.svg)](https://badge.fury.io/js/handlebars-faker) [![Dependency Status](https://david-dm.org/jantimon/handlebars-faker.svg)](https://david-dm.org/jantimon/handlebars-faker)
 
 Small helper to use faker inside your handlebars template
 
