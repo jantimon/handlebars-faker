@@ -1,5 +1,6 @@
 var faker = require('faker');
 var assert = require('assert');
+var isEmpty = require('lodash/isEmpty');
 var defaultLanguage = 'en';
 
 module.exports = function handlebarsFakerHelper (fakeName /*, [...], options */) {
@@ -13,7 +14,7 @@ module.exports = function handlebarsFakerHelper (fakeName /*, [...], options */)
   var fakerOptions = options.hash;
   var fakerArguments = Array.prototype.slice.call(arguments, 1, arguments.length - 1);
 
-  if (fakerOptions) {
+  if (fakerOptions && !isEmpty(fakerOptions)) {
     // pushes the handlebars hash into the argument list of the faker call.
     // this ensures faker methods that depend on option objects like Faker.random.number({min, max, precision})
     // can be properly given their options object.
