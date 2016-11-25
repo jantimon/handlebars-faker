@@ -28,4 +28,21 @@ describe('handlebars-faker', function () {
     assert(faker.lorem.words.withArgs('2').calledOnce);
     faker.lorem.words.restore();
   });
+  it('should generate a random number', function () {
+    sinon.spy(faker.random, 'number');
+    var result = Handlebars.compile('{{faker "random.number" }}')({});
+    assert.isNumber(parseInt(result, 10));
+    assert(faker.random.number.calledOnce);
+    faker.random.number.restore();
+  });
+  it('should generate a random number when passing an options object as an argument', function () {
+    sinon.spy(faker.random, 'number');
+    var result = Handlebars.compile('{{faker "random.number" min=4 max=15 precision=1 }}')({});
+    var parsedResult = parseInt(result, 10);
+    assert(faker.random.number.withArgs({min: 4, max: 15, precision: 1}).calledOnce);
+    assert.isNumber(parsedResult);
+    assert.isAtLeast(parsedResult, 4);
+    assert.isAtMost(parsedResult, 15);
+    faker.random.number.restore();
+  });
 });

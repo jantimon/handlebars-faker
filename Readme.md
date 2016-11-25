@@ -17,9 +17,9 @@ npm install handlebars-faker --save-dev
 var Handlebars = require('handlebars');
 Handlebars.registerHelper('faker', require('handlebars-faker'));
 
-var template = Handlebars.compile('{{faker "internet.email"}} {{faker "lorem.words" 3}}');
+var template = Handlebars.compile('{{faker "internet.email"}} - {{faker "lorem.words" 3}} - {{faker "random.number" min=4 max=15}}');
 console.log(template({}));
-// -> Patricia_Schamberger75@gmail.com voluptas in omnis
+// -> Patricia_Schamberger75@gmail.com - voluptas in omnis - 11
 ```
 
 # Changelog
