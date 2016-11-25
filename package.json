@@ -1,6 +1,6 @@
 {
   "name": "handlebars-faker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Small helper to use faker inside your handlebars template",
   "main": "index.js",
   "keywords": [
