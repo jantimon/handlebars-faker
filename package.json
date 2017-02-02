@@ -1,6 +1,6 @@
 {
   "name": "handlebars-faker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Small helper to use faker inside your handlebars template",
   "main": "index.js",
   "keywords": [
@@ -19,12 +19,12 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "handlebars": "^4.0.5",
-    "lodash": "^4.17.2",
     "mocha": "^2.5.3",
     "semistandard": "^8.0.0",
     "sinon": "^1.17.4"
   },
   "dependencies": {
-    "faker": "^3.1.0"
+    "faker": "^3.1.0",
+    "lodash": "^4.17.2"
   }
 }

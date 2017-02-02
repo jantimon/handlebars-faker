@@ -1,3 +1,7 @@
+# 0.0.4
+
++ Depend on lodash isEmpty
+
 # 0.0.3
 
 + Allow to disable randomness
