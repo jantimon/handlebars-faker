@@ -1,12 +1,19 @@
-/* global describe, it */
+/* global describe, it, before, after */
 var assert = require('chai').assert;
-var faker = require('faker');
 var sinon = require('sinon');
+var hbsFaker = require('../');
 
 var Handlebars = require('handlebars');
 Handlebars.registerHelper('faker', require('../'));
 
 describe('handlebars-faker', function () {
+  var faker = require('faker');
+  before(function () {
+    sinon.stub(hbsFaker, 'fakerFactory').returns(faker);
+  });
+  after(function () {
+    hbsFaker.fakerFactory.restore();
+  });
   it('should generate a fake email address', function () {
     sinon.stub(faker.internet, 'email').onFirstCall().returns('demo@example.com');
     var result = Handlebars.compile('{{faker "internet.email"}}')({});
@@ -44,5 +51,27 @@ describe('handlebars-faker', function () {
     assert.isAtLeast(parsedResult, 4);
     assert.isAtMost(parsedResult, 15);
     faker.random.number.restore();
+  });
+});
+
+describe('handlebars-faker-seed', function () {
+  var setRandomSeed = require('../').setRandomSeed;
+  before(function () {
+    setRandomSeed(1);
+  });
+  after(function () {
+    setRandomSeed();
+  });
+
+  it('should generate always the same fake email address', function () {
+    var result1 = Handlebars.compile('{{faker "internet.email"}}')({});
+    var result2 = Handlebars.compile('{{faker "internet.email"}}')({});
+    assert.equal(result1, result2);
+  });
+
+  it('should generate always the same random number', function () {
+    var result1 = Handlebars.compile('{{faker "random.number" min=4 max=15 precision=1 }}')({});
+    var result2 = Handlebars.compile('{{faker "random.number" min=4 max=15 precision=1 }}')({});
+    assert.equal(result1, result2);
   });
 });

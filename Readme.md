@@ -15,11 +15,24 @@ npm install handlebars-faker --save-dev
 
 ```js
 var Handlebars = require('handlebars');
-Handlebars.registerHelper('faker', require('handlebars-faker'));
+var FakerHandlebarsHelper = require('handlebars-faker');
+Handlebars.registerHelper('faker', FakerHandlebarsHelper);
 
 var template = Handlebars.compile('{{faker "internet.email"}} - {{faker "lorem.words" 3}} - {{faker "random.number" min=4 max=15}}');
 console.log(template({}));
 // -> Patricia_Schamberger75@gmail.com - voluptas in omnis - 11
+```
+
+## Snapshot testing
+
+Snapshot testing requires always the same outcome.
+To achieve this you can set a random seed:
+
+## Usage
+
+```js
+var FakerHandlebarsHelper = require('handlebars-faker');
+Faker.setRandomSeed(42);
 ```
 
 # Changelog
